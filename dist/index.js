@@ -145,7 +145,7 @@ function attachSummary(testResults, detailedSummary, includePassed) {
                 else {
                     for (const annotation of annotations) {
                         const [error, link] = annotation.message.split('More info at:');
-                        const errorMessage = `<a href='${link}'>${error}</a>`;
+                        const errorMessage = `<a href="${link}/" target="_blank">${error}</a>`;
                         const test = annotation.title.replace('test.', '');
                         detailsTable.push([
                             test,
