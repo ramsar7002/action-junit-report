@@ -120,7 +120,7 @@ export async function attachSummary(
 
   const detailsTable: SummaryTableRow[] = [
     [
-      {data: 'Test', header: true},
+      {data: 'Test Name', header: true},
       {data: 'Error Message & Link', header: true},
       {data: 'Result', header: true}
     ]

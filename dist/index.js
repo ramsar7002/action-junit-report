@@ -121,7 +121,7 @@ function attachSummary(testResults, detailedSummary, includePassed) {
         ];
         const detailsTable = [
             [
-                { data: 'Test', header: true },
+                { data: 'Test Name', header: true },
                 { data: 'Error Message & Link', header: true },
                 { data: 'Result', header: true }
             ]
