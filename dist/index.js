@@ -146,11 +146,12 @@ function attachSummary(testResults, detailedSummary, includePassed) {
                 else {
                     for (const annotation of annotations) {
                         const [error, link] = annotation.message.split('More info at:');
+                        const errorMessage = `[${error}](${link})`;
                         const test = annotation.title.replace('test.', '');
                         detailsTable.push([
                             `${testResult.checkName}`,
                             `${test}`,
-                            `[${error}](${link})`,
+                            `${errorMessage}`,
                             `${annotation.annotation_level === 'notice' ? '✅ pass' : `❌ ${annotation.annotation_level}`}`
                         ]);
                     }
