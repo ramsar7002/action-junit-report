@@ -121,7 +121,6 @@ function attachSummary(testResults, detailedSummary, includePassed) {
         ];
         const detailsTable = [
             [
-                { data: '', header: true },
                 { data: 'Test', header: true },
                 { data: 'Error & Link', header: true },
                 { data: 'Result', header: true }
@@ -149,9 +148,8 @@ function attachSummary(testResults, detailedSummary, includePassed) {
                         const errorMessage = `[${error}](${link})`;
                         const test = annotation.title.replace('test.', '');
                         detailsTable.push([
-                            `${testResult.checkName}`,
-                            `${test}`,
-                            `${errorMessage}`,
+                            test,
+                            errorMessage,
                             `${annotation.annotation_level === 'notice' ? '✅ pass' : `❌ ${annotation.annotation_level}`}`
                         ]);
                     }

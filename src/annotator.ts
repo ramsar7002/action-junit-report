@@ -120,7 +120,6 @@ export async function attachSummary(
 
   const detailsTable: SummaryTableRow[] = [
     [
-      {data: '', header: true},
       {data: 'Test', header: true},
       {data: 'Error & Link', header: true},
       {data: 'Result', header: true}
@@ -155,9 +154,8 @@ export async function attachSummary(
           const test = annotation.title.replace('test.', '')
 
           detailsTable.push([
-            `${testResult.checkName}`,
-            `${test}`,
-            `${errorMessage}`,
+            test,
+            errorMessage,
             `${annotation.annotation_level === 'notice' ? '✅ pass' : `❌ ${annotation.annotation_level}`}`
           ])
         }
