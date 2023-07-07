@@ -150,10 +150,11 @@ export async function attachSummary(
         detailsTable.push([`-`, `No test annotations available`, `-`])
       } else {
         for (const annotation of annotations) {
+          const [error, link] = annotation.message.split('More info at:')
           detailsTable.push([
             `${testResult.checkName}`,
             `${annotation.title}`,
-            `${annotation.message}`,
+            `[${error}](${link})`,
             `${annotation.annotation_level === 'notice' ? '✅ pass' : `❌ ${annotation.annotation_level}`}`
           ])
         }
