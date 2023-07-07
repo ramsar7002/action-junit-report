@@ -121,7 +121,7 @@ export async function attachSummary(
   const detailsTable: SummaryTableRow[] = [
     [
       {data: 'Test', header: true},
-      {data: 'Error & Link', header: true},
+      {data: 'Error Message & Link', header: true},
       {data: 'Result', header: true}
     ]
   ]
@@ -151,7 +151,7 @@ export async function attachSummary(
         for (const annotation of annotations) {
           const [error, link] = annotation.message.split(' More info at: ')
           const errorMessage = `<a href="${link}" target="_blank">${error}</a>`
-          // const errorMessage = `[${error}](${link})`
+
           const test = annotation.title.replace('test.', '')
 
           detailsTable.push([
