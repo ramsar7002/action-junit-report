@@ -160,6 +160,9 @@ function attachSummary(testResults, detailedSummary, includePassed) {
         if (detailedSummary) {
             yield core.summary.addTable(detailsTable).write();
         }
+        if (detailsTable.length <= 10) {
+            core.exportVariable('testFailures', detailsTable);
+        }
     });
 }
 exports.attachSummary = attachSummary;
