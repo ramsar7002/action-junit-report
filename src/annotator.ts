@@ -150,7 +150,7 @@ export async function attachSummary(
       } else {
         for (const annotation of annotations) {
           const [error, link] = annotation.message.split('More info at:')
-          const errorMessage = `[${error}](${link})`
+          const errorMessage = `<a href='${link}'>${error}</a>`
           const test = annotation.title.replace('test.', '')
 
           detailsTable.push([
