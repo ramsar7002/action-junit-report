@@ -156,7 +156,7 @@ function attachSummary(testResults, detailedSummary, includePassed) {
             }
         }
         yield core.summary.addTable(table).write();
-        if (detailedSummary && detailsTable.length) {
+        if (detailedSummary && detailsTable.length > 1) {
             yield core.summary.addTable(detailsTable).write();
         }
     });
