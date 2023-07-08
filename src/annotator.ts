@@ -167,8 +167,4 @@ export async function attachSummary(
   if (detailedSummary && detailsTable.length) {
     await core.summary.addTable(detailsTable).write()
   }
-
-  if (detailsTable.length <= 10) {
-    core.exportVariable('testFailures', detailsTable)
-  }
 }

@@ -140,7 +140,6 @@ function attachSummary(testResults, detailedSummary, includePassed) {
                     if (!includePassed) {
                         core.info(`⚠️ No annotations found for ${testResult.checkName}. If you want to include passed results in this table please configure 'include_passed' as 'true'`);
                     }
-                    detailsTable.push([`-`, `No test annotations available`, `-`]);
                 }
                 else {
                     for (const annotation of annotations) {
@@ -157,11 +156,8 @@ function attachSummary(testResults, detailedSummary, includePassed) {
             }
         }
         yield core.summary.addTable(table).write();
-        if (detailedSummary) {
+        if (detailedSummary && detailsTable.length) {
             yield core.summary.addTable(detailsTable).write();
-        }
-        if (detailsTable.length <= 10) {
-            core.exportVariable('testFailures', detailsTable);
         }
     });
 }
