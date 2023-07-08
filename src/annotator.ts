@@ -146,7 +146,6 @@ export async function attachSummary(
             `⚠️ No annotations found for ${testResult.checkName}. If you want to include passed results in this table please configure 'include_passed' as 'true'`
           )
         }
-        detailsTable.push([`-`, `No test annotations available`, `-`])
       } else {
         for (const annotation of annotations) {
           const [error, link] = annotation.message.split(' More info at: ')
@@ -165,7 +164,7 @@ export async function attachSummary(
   }
 
   await core.summary.addTable(table).write()
-  if (detailedSummary) {
+  if (detailedSummary && detailsTable.length) {
     await core.summary.addTable(detailsTable).write()
   }
 
