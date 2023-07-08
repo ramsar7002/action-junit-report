@@ -164,7 +164,7 @@ export async function attachSummary(
   }
 
   await core.summary.addTable(table).write()
-  if (detailedSummary && detailsTable.length) {
+  if (detailedSummary && detailsTable.length > 1) {
     await core.summary.addTable(detailsTable).write()
   }
 }
